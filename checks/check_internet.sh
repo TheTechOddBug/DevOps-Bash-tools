@@ -40,6 +40,9 @@ Tests:
 - DNS resolution is working (resolves google.com)
 - Public Domain is reachable (ping to google.com)
 - Google.com and GitHub.com websites are available over HTTPS
+
+NOTE: This fails in China unless you're on a VPN because Google is blocked in China by The Great Firewall.
+Either edit this script to use some Chinese accessible address or run it while connected to VPN
 "
 
 # used by usage() in lib/utils.sh
