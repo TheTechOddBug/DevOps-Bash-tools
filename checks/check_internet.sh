@@ -54,6 +54,7 @@ no_more_args "$@"
 
 SECONDS=0
 
+# XXX: catch 22 that I need to detect if my public IP is in China to be able to test for Chinese accessible websites
 country="$(curl -sS ifconfig.co/json | jq -r '.country')"
 
 if [ "$country" = "China" ]; then
