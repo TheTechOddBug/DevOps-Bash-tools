@@ -40,8 +40,10 @@ Tests:
 - DNS resolution is working (resolves google.com)
 - Public Domain is reachable (ping to google.com)
 - Google.com and GitHub.com websites are available over HTTPS
-- China mode - detects if your public IP is in China and if so switches to Chinese accessible site
-  baidu.com instead of google.com for DNS and IP tests
+- China mode - detects if your public IP is in China and if so switches to Chinese accessible site baidu.com
+  instead of google.com for DNS and IP tests since Google is blocked in China by The Great Firewall
+  (if you're on a VPN in China your public IP will probably be in a different country and it'll use the default
+  tests which will work over your VPN)
 "
 
 # used by usage() in lib/utils.sh
