@@ -54,10 +54,10 @@ no_more_args "$@"
 
 SECONDS=0
 
+# XXX: catch 22 - I need to detect if public IP is in China to be able to switch tests to Chinese accessible sites
+#      call this after gateway test at least
 configure_sites_to_test(){
-    # XXX: catch 22 that I need to detect if my public IP is in China to be able to test for Chinese accessible websites
-    #      so call this after gateway test at least
-    #      China detection is best effort and we skip this if it fails
+    # China detection is best effort and ignore if it fails and just stick with the defaults
     country="$(curl -sS ifconfig.co/json | jq -r '.country' || :)"
 
     if [ "$country" = "China" ]; then
