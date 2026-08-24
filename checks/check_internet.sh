@@ -55,8 +55,17 @@ no_more_args "$@"
 
 SECONDS=0
 
-public_ip="1.1.1.1"
-domain="google.com"
+country="$(curl -sS ifconfig.co/json | jq -r '.country')"
+
+if [ "$country" = "China" ]; then
+    domain="baidu.com"
+    public_ip="111.63.65.103"
+    websites="baidu.com github.com"
+else
+    domain="google.com"
+    public_ip="1.1.1.1"
+    websites="google.com github.com"
+fi
 
 ping_count=1
 ping_timeout=2
@@ -95,6 +104,8 @@ check_dns() {
         getent hosts "$domain" &>/dev/null
     elif type -P dig &>/dev/null; then
         dig +short "$domain" &>/dev/null
+    elif type -P host &>/dev/null; then
+        host "$domain" &>/dev/null
     elif type -P nslookup &>/dev/null; then
         nslookup "$domain" &>/dev/null
     else
@@ -158,7 +169,7 @@ while ! check_domain_ping; do
     sleep "$sleep_seconds"
 done
 
-for website in google.com github.com; do
+for website in $websites; do
     timestamp "Checking HTTPS reachable: $website"
     while ! check_https "$website"; do
         sleep "$sleep_seconds"
