@@ -157,6 +157,8 @@ timestamp "Checking Gateway IP available: $gateway_ip"
 #done
 check_gateway || :
 
+configure_sites_to_test
+
 timestamp "Checking Public IP available: $public_ip"
 while ! check_public_ip; do
     sleep "$sleep_seconds"
