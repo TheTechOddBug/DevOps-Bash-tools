@@ -54,18 +54,21 @@ no_more_args "$@"
 
 SECONDS=0
 
-# XXX: catch 22 that I need to detect if my public IP is in China to be able to test for Chinese accessible websites
-country="$(curl -sS ifconfig.co/json | jq -r '.country' || :)"
+configure_sites_to_test(){
+    # XXX: catch 22 that I need to detect if my public IP is in China to be able to test for Chinese accessible websites
+    #      so call this after gateway test at least
+    country="$(curl -sS ifconfig.co/json | jq -r '.country' || :)"
 
-if [ "$country" = "China" ]; then
-    domain="baidu.com"
-    public_ip="111.63.65.103"
-    websites="baidu.com github.com"
-else
-    domain="google.com"
-    public_ip="1.1.1.1"
-    websites="google.com github.com"
-fi
+    if [ "$country" = "China" ]; then
+        domain="baidu.com"
+        public_ip="111.63.65.103"
+        websites="baidu.com github.com"
+    else
+        domain="google.com"
+        public_ip="1.1.1.1"
+        websites="google.com github.com"
+    fi
+}
 
 ping_count=1
 ping_timeout=2
