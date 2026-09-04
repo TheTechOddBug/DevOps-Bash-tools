@@ -1696,8 +1696,8 @@ See also [Knowledge Base notes for MultiMedia](https://github.com/HariSekhon/Kno
   - Data & Markup:
     - [JSON](https://www.json.org/json-en.html)
     - [CSON](https://github.com/lifthrasiir/cson)
-    - [YAML](https://yaml.org/)
     - [XML](https://www.w3.org/XML/)
+    - [YAML](https://yaml.org/)
   - Build Systems:
     - [Make](https://www.gnu.org/software/make/)
     - [Maven](https://maven.apache.org/)
