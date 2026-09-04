@@ -1683,7 +1683,8 @@ See also [Knowledge Base notes for MultiMedia](https://github.com/HariSekhon/Kno
 - `run.sh` - runs one or more files, auto-determines the file types, any run or arg headers and executes each file using the appropriate script or CLI tool. Integrated with my custom `.vimrc`
 - `check_*.sh` - extensive collection of 60+ generalized tests
   - run against all my GitHub repos via [CI](https://harisekhon.github.io/CI-CD/)
-  - `check_internet.sh` - is useful as a blocking integration check for internet connectivity before proceeding with failable operations. I use this in my [HariSekhon/Spotify-Playlists](https://github.com/HariSekhon/Spotify-Playlists) API downloads for example
+  - `check_internet.sh` - useful, waits for internet connectivity before proceeding, multiple levels of checks on gateway, DNS, public IP and public domains
+    - I use in my [HariSekhon/Spotify-Playlists](https://github.com/HariSekhon/Spotify-Playlists) API downloads
   - Programming language linting:
     - [Python](https://www.python.org/) (syntax, pep8, byte-compiling, reliance on asserts which can be disabled at runtime, except/pass etc.)
     - [Perl](https://www.perl.org/)
@@ -1694,7 +1695,9 @@ See also [Knowledge Base notes for MultiMedia](https://github.com/HariSekhon/Kno
     - Misc (whitespace, README, custom code checks etc.)
   - Data & Markup:
     - [JSON](https://www.json.org/json-en.html)
+    - CSON
     - [YAML](https://yaml.org/)
+    - [XML](https://www.w3.org/XML/)
   - Build Systems:
     - [Make](https://www.gnu.org/software/make/)
     - [Maven](https://maven.apache.org/)
